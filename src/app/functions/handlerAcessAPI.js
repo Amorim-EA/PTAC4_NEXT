@@ -1,4 +1,4 @@
-const usuarios = [
+const usersCadastrados = [
     {
         nome: 'Erick',
         email: 'erick@gmail.com',
@@ -20,15 +20,17 @@ const usuarios = [
     ]
 
 const getUserAuthenticated = (user) => {
-     usuarios.map(usr => {
+     let usuarioValido;
+     usersCadastrados.map(usr => {
         if(usr.email === user.email && usr.password === user.password){
-        
+          usuarioValido =  usr;
         }
      })
+     return usuarioValido;
 }
 
 const getUsers = () =>{
-    usuarios.map(user => {
+    usersCadastrados.map(user => {
         <div>
             <h3>Nome: {user.name}</h3>
             <h3>Email: {user.email}</h3>

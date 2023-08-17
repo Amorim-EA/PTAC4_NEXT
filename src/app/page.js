@@ -1,4 +1,5 @@
 'use client'
+import { getUsers } from "@/app/functions/handlerAcessAPI";
 import { useState } from "react";
 import handlerAcessUser from "./functions/handlerAcess"
 import { useRouter } from "next/navigation";
@@ -35,6 +36,8 @@ export default function Login() {
         </input>
         <button>Entrar</button>
       </form>
+      
+      {getUsers()}
     </div>
   )
 }
