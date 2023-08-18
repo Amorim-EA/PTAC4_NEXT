@@ -1,8 +1,9 @@
 'use client'
-import { getUsers } from "@/app/functions/handlerAcessAPI";
 import { useState } from "react";
-import handlerAcessUser from "./functions/handlerAcess"
+import handlerAcessUser from "./functions/handlerAcess";
 import { useRouter } from "next/navigation";
+
+import { getUsers } from "./functions/handlerAcessAPI";
 
 export default function Login() {
   const [user, setUser] = useState({
@@ -10,6 +11,7 @@ export default function Login() {
     password: '',
   });
   const { push, refresh } = useRouter();
+  const users = getUsers();
 
   const handlerLogin = async (e) => {
     e.preventDefault();
@@ -36,8 +38,7 @@ export default function Login() {
         </input>
         <button>Entrar</button>
       </form>
-      
-      {getUsers()}
+      {users}
     </div>
   )
 }

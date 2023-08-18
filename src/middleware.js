@@ -1,4 +1,4 @@
-'use server'
+'server'
 import { NextResponse } from "next/server";
 import { validateToken } from "./app/functions/validateToken";
 
@@ -16,12 +16,12 @@ export const middleware = (request) => {
     }
 
     if (isTokenValidated || token) {
-        return NextResponse.redirect(urlDashboard);
-      }
+      if (request.nextUrl.pathname === '/pages/dashboard') {
+            return NextResponse.redirect(urlDashboard);
+        }
     }
-    NextResponse.next();
+   return NextResponse.next();
 };
 export const config = {
     matcher: ['/', '/pages/dashboard']
 };
-
