@@ -25,8 +25,7 @@ const getUserAuthenticated = (user) => {
         if(usr.email === user.email && usr.password === user.password){
           userAuth =  {
             email: user.email,
-            password: user.password,
-            token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9'
+            password: user.password
           };
           return;
         }
@@ -35,11 +34,12 @@ const getUserAuthenticated = (user) => {
 }
 
 const getUsers = () => {
-   usersCadastrados.map(user => {
-       return(<div>
-            <h3>Nome: {user.nome}</h3>
-            <h3>Email: {user.email}</h3>
-            <h3>password: {user.password}</h3>
+   return usersCadastrados.map(user => {
+       return(<div className="containerUsers">
+            <h3>Nome: <span>{user.nome}</span></h3>
+            <h3>Email: <span>{user.email}</span></h3>
+            <h3>password: <span>{user.password}</span></h3>
+            <h3>password: <span>{user.token}</span></h3>
         </div>)
     })   
 }

@@ -3,15 +3,12 @@ import { useState } from "react";
 import handlerAcessUser from "./functions/handlerAcess";
 import { useRouter } from "next/navigation";
 
-import { getUsers } from "./functions/handlerAcessAPI";
-
 export default function Login() {
   const [user, setUser] = useState({
     email: '',
     password: '',
   });
   const { push, refresh } = useRouter();
-  const users = getUsers();
 
   const handlerLogin = async (e) => {
     e.preventDefault();
@@ -38,7 +35,6 @@ export default function Login() {
         </input>
         <button>Entrar</button>
       </form>
-      {users}
     </div>
   )
 }
