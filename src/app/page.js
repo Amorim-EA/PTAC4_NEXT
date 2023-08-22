@@ -2,6 +2,8 @@
 import { useState } from "react";
 import handlerAcessUser from "./functions/handlerAcess";
 import { useRouter } from "next/navigation";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function Login() {
   const [user, setUser] = useState({
@@ -13,8 +15,14 @@ export default function Login() {
   const handlerLogin = async (e) => {
     e.preventDefault();
     try {
+      const userAuth = await handlerAcessUser(user);
+      if(userAuth.token === undefined){
+        toast.error("Senha ou Email incorretos!")
+      }
+      if(userAuth.token){
+        toast.error("Login efetuado com sucesso!")
+      }
       await handlerAcessUser(user);
-      push('/pages/dashboard');
     } catch {
       refresh();
     }
@@ -35,6 +43,7 @@ export default function Login() {
         </input>
         <button>Entrar</button>
       </form>
+      <ToastContainer />
     </div>
   )
 }

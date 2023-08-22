@@ -5,7 +5,7 @@ const validateToken = async (token) => {
   if(!isTokenValidate){
     return !token;
   }
-  return true;
+  return !!token;
 }
 
 export { validateToken };
