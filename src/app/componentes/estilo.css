@@ -1,0 +1,10 @@
+.containerMestre {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+.containerUsers {
+  border: 3px solid black;
+  padding: 15px;
+  border-radius: 10px;
+}

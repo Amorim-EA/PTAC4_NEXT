@@ -22,7 +22,6 @@ export default function Login() {
       if(userAuth.token){
         toast.error("Login efetuado com sucesso!")
       }
-      await handlerAcessUser(user);
     } catch {
       refresh();
     }
